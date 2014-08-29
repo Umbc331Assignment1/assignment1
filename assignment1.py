@@ -1,8 +1,6 @@
 ##Matt Henry
 
 class Rememberer:
-	#def __init__(self):
-	#	self.remeberthese = []
 	def __init__(self,filename):
 		self.remeberthese = []
 		try:
@@ -34,7 +32,7 @@ class Rememberer:
 	#So check-ers should return booleans
 	#Check if string is a number, then checks if it's a prime
 	def checkprime(self, datum):
-		if(self.isNumber(datum)):
+		if(self.isNumber(datum) and int(datum) < 10000):
         		i = int(datum)
         		for x in range(i):
             			if(x > 1):
@@ -72,7 +70,6 @@ class Rememberer:
             		int(i)
         	except ValueError:
             		return False
-
     	    return True
 
 	
