@@ -38,14 +38,15 @@ class Rememberer:
 	#First checks if its 3 chars long "len(datum) == 3"
 	#Then if all chars are vowels
 	def checkthreechar(self, datum):
-		if (len(datum) == 3) and self.isvowel(datum):
+		if ((len(datum) == 3) and (self.isvowel(datum))):
 			print "Debug: Hit three char for: " , datum
 			return True
 		return False
 
+	#Checks First and last Char's for being L and E respectivly 
 	#Should be finished
 	def checkLE(self, datum):
-		if ((datum[0] == 'l' or datum[0] == 'L') and (datum[-1] == 'e' or datum[-1] == 'E'):
+		if ((datum[0] == 'l' or datum[0] == 'L') and (datum[-1] == 'e' or datum[-1] == 'E')):
 			print "Debug: Hit checkLE for: ", datum
 			return True
 		return False
@@ -54,10 +55,11 @@ class Rememberer:
 	#instructions say only check if the prime critria is reached
 	#so the item would be already included?
 	def check4to9long(self, datum):
-		pass
+		return True
 ###############################################
 	##Checker helper
-	def isvowel(s):
+	def isvowel(self, s):
+		s = str(s) #just incase its a number
 		letters = ['a','e','i','o','u','y']
 		for e in s:
 			if e not in letters:
@@ -68,9 +70,10 @@ class Rememberer:
 ###########################################
 	def lexoSort(self):
 		#sorts self.remeberthese
-		print self.remeberthese
+		print "Final list (unsorted):", self.remeberthese
 
 
 
 ##TODO Make read from command line argument?
 x = Rememberer("testfile.txt")
+
