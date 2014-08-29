@@ -32,7 +32,15 @@ class Rememberer:
 	##Checkers
 	##########TODO	
 	#So check-ers should return booleans
+	#Check if string is a number, then checks if it's a prime
 	def checkprime(self, datum):
+		if(self.isNumber(datum)):
+        		i = int(datum)
+        		for x in range(i):
+            			if(x > 1):
+                			if((i % x) == 0):
+                    				return False
+			return True
 		return False
 	
 	#First checks if its 3 chars long "len(datum) == 3"
@@ -58,6 +66,16 @@ class Rememberer:
 		return True
 ###############################################
 	##Checker helper
+	def isNumber(self, datum):
+	    for i in datum:
+        	try:
+            		int(i)
+        	except ValueError:
+            		return False
+
+    	    return True
+
+	
 	def isvowel(self, s):
 		s = str(s) #just incase its a number
 		letters = ['a','e','i','o','u','y']
