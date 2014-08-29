@@ -17,12 +17,17 @@ class Rememberer:
     
     def parse(self,the_file_as_string):
         templist = the_file_as_string.split(' ')
+        saveNext = False;
         for e in templist:
+            if ( saveNext ):
+            	self.remeberthese.add(e)
             if (self.checkprime(e)):
                 self.remeberthese.add(e)
                 continue
             if (self.check4to9long(e)):
-                print "Should add the next value in the text"
+                saveNext = True
+            else:
+            	saveNext = False
             if (self.checkthreechar(e)):
                 self.remeberthese.add(e)
                 continue
