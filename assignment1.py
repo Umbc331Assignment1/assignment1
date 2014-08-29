@@ -1,9 +1,5 @@
 ##Matt Henry
-import re
-charref = re.compile("[aeiouy]+",re.I)
-areletters = re.compile("[a-z]+",re.I)
-arenotletters = re.compile("\W+")
-charinverse = re.compile("[bcdfghjklmnpqrstvwxz]+",re.I)
+
 class Rememberer:
 	#def __init__(self):
 	#	self.remeberthese = []
@@ -40,10 +36,9 @@ class Rememberer:
 		return False
 	
 	#First checks if its 3 chars long "len(datum) == 3"
-	#TODO: then if they are letters
-	#then if theres any non-vowels "charinverse.search(datum)"
+	#Then if all chars are vowels
 	def checkthreechar(self, datum):
-		if (len(datum) == 3) and not charinverse.search(datum):
+		if (len(datum) == 3) and self.isvowel(datum):
 			print "Debug: Hit three char for: " , datum
 			return True
 		return False
@@ -62,7 +57,12 @@ class Rememberer:
 		pass
 ###############################################
 	##Checker helper
-
+	def isvowel(s):
+		letters = ['a','e','i','o','u','y']
+		for e in s:
+			if e not in letters:
+				return False
+		return True
 
 
 ###########################################
@@ -73,14 +73,4 @@ class Rememberer:
 
 
 ##TODO Make read from command line argument?
-#x = Rememberer("testfile.txt")
-
-
-###reg expresion crap
-#if ( not charinverse.search("eta")):
-#	print "yes"
-
-if arenotletters.search("1234"):
-	print "has non letters"
-
-
+x = Rememberer("testfile.txt")
