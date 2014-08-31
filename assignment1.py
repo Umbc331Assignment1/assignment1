@@ -1,30 +1,35 @@
 ##Matt Henry
+import traceback
 
 class Rememberer:
 	def __init__(self,filename):
-		self.remeberthese = []
+		#self.remeberthese = []
+		self.remeberthese = set()
 		try:
 			f = open(str(filename))
 			s = f.read()
 			self.parse(s)
 		except Exception:
-			print "Failed to open"	
+			print "Failed to open"
+			traceback.print_exc()
 			return
 		self.lexoSort()
 	
 	def parse(self,the_file_as_string):
 		templist = the_file_as_string.split(' ')
+		saveNext = False
 		for e in templist:
+			if ( saveNext ):
+				self.remeberthese.add(e)
+			saveNext = self.check4to9long(e)
 			if (self.checkprime(e)):
-				self.remeberthese.append(e)
+				self.remeberthese.add(e)
 				continue
-				#if (check4to9long(e)):
-				#	pass
 			if (self.checkthreechar(e)):
-				self.remeberthese.append(e)
+				self.remeberthese.add(e)
 				continue
 			if(self.checkLE(e)):
-				self.remeberthese.append(e)
+				self.remeberthese.add(e)
 				continue
 #############################################
 	##Checkers
@@ -61,7 +66,14 @@ class Rememberer:
 	#instructions say only check if the prime critria is reached
 	#so the item would be already included?
 	def check4to9long(self, datum):
-		return True
+		try:
+			intDatum = int(datum)
+		except Exception:
+			return False
+		if ( len(datum) >= 4 and len(datum) <= 9 ):
+			print "Debug: Hit num len for: ", datum
+			return True
+		return False
 ###############################################
 	##Checker helper
 	def isNumber(self, datum):
@@ -85,10 +97,10 @@ class Rememberer:
 ###########################################
 	def lexoSort(self):
 		#sorts self.remeberthese
-		print "Final list (unsorted):", self.remeberthese
+		#print "Final list (unsorted):", self.remeberthese
+		print "Final list (sorted):", sorted(self.remeberthese)
 
 
 
 ##TODO Make read from command line argument?
 x = Rememberer("testfile.txt")
-
