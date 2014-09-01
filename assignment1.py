@@ -1,5 +1,6 @@
 ##Matt Henry
 import traceback
+import sys
 
 class Rememberer:
 	def __init__(self,filename):
@@ -102,5 +103,6 @@ class Rememberer:
 
 
 
-##TODO Make read from command line argument?
-x = Rememberer("testfile.txt")
+#Takes last argument on command line as filename
+filename  = sys.argv[-1]
+x = Rememberer(filename)
