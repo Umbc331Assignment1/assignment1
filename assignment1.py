@@ -38,7 +38,7 @@ class Rememberer:
 	#So check-ers should return booleans
 	#Check if string is a number, then checks if it's a prime
 	def checkprime(self, datum):
-		if(self.isNumber(datum) and int(datum) < 10000):
+		if(self.isNumber(datum) and ((int(datum) < 10000) and (int(datum) > 1))):
         		i = int(datum)
         		for x in range(i):
             			if(x > 1):
