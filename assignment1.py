@@ -48,6 +48,7 @@ class Rememberer:
             			if(x > 1):
                 			if((i % x) == 0):
                     				return False
+			print "Debug: Hit check prime for: ", datum
 			return True
 		return False
 	
@@ -103,7 +104,8 @@ class Rememberer:
 	def lexoSort(self):
 		#sorts self.remeberthese
 		#print "Final list (unsorted):", self.remeberthese
-		print "Final list (sorted):", sorted(self.remeberthese)
+		for e in sorted(self.remeberthese):
+			print e
 
 
 
