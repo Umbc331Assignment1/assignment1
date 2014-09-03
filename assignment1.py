@@ -1,4 +1,8 @@
-##Matt Henry
+##CSMC 331
+##Mr. Echlin
+##Project 1
+##Group Members: Matt Henry, Ryan Fischbach
+
 import traceback
 import sys
 
