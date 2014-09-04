@@ -27,7 +27,6 @@ class Rememberer:
 			if ( saveNext ):
 				self.remeberthese.add(e)
 				saveNext = False
-				continue
 			if (self.checkprime(e)):
 				self.remeberthese.add(e)
 				saveNext = self.check4to9long(e)
