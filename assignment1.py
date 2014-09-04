@@ -48,7 +48,7 @@ class Rememberer:
             			if(x > 1):
                 			if((i % x) == 0):
                     				return False
-			print "Debug: Hit check prime for: ", datum
+			#print "Debug: Hit check prime for: ", datum
 			return True
 		return False
 	
@@ -56,7 +56,7 @@ class Rememberer:
 	#Then if all chars are vowels
 	def checkthreechar(self, datum):
 		if ((len(datum) == 3) and (self.isvowel(datum))):
-			print "Debug: Hit three char for: " , datum
+			#print "Debug: Hit three char for: " , datum
 			return True
 		return False
 
@@ -64,7 +64,7 @@ class Rememberer:
 	#Should be finished
 	def checkLE(self, datum):
 		if ((datum[0] == 'l' or datum[0] == 'L') and (datum[-1] == 'e' or datum[-1] == 'E')):
-			print "Debug: Hit checkLE for: ", datum
+			#print "Debug: Hit checkLE for: ", datum
 			return True
 		return False
 
@@ -77,7 +77,7 @@ class Rememberer:
 		except Exception:
 			return False
 		if ( len(datum) >= 4 and len(datum) <= 9 ):
-			print "Debug: Hit num len for: ", datum
+			#print "Debug: Hit num len for: ", datum
 			return True
 		return False
 ###############################################
